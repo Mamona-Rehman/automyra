@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../../App.css';
 
 const Navbar = () => {
   const location = useLocation();
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     // Theme toggle functionality
@@ -19,6 +21,18 @@ const Navbar = () => {
         localStorage.setItem('theme', newTheme);
       });
     }
+
+    // Handle scroll effect
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const isActive = (path) => {
@@ -28,46 +42,53 @@ const Navbar = () => {
     return location.pathname.startsWith(path);
   };
 
+  const toggleNavbar = () => {
+    setIsNavbarOpen(!isNavbarOpen);
+  };
+
+  const closeNavbar = () => {
+    setIsNavbarOpen(false);
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg sticky-top">
+    <nav className={`navbar navbar-expand-lg sticky-top ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/" onClick={closeNavbar}>
           <span className="logo-text">Automyra AI</span>
         </Link>
         <button 
           className="navbar-toggler" 
           type="button" 
-          data-bs-toggle="collapse" 
-          data-bs-target="#navbarNav"
+          onClick={toggleNavbar}
           aria-controls="navbarNav"
-          aria-expanded="false"
+          aria-expanded={isNavbarOpen}
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className={`collapse navbar-collapse ${isNavbarOpen ? 'show' : ''}`} id="navbarNav">
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
-              <Link className={`nav-link ${isActive('/') ? 'active' : ''}`} to="/">Home</Link>
+              <Link className={`nav-link ${isActive('/') ? 'active' : ''}`} to="/" onClick={closeNavbar}>Home</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${isActive('/integration') ? 'active' : ''}`} to="/integration">Integrations</Link>
+              <Link className={`nav-link ${isActive('/integration') ? 'active' : ''}`} to="/integration" onClick={closeNavbar}>Integrations</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${isActive('/services') ? 'active' : ''}`} to="/services">Services</Link>
+              <Link className={`nav-link ${isActive('/services') ? 'active' : ''}`} to="/services" onClick={closeNavbar}>Services</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${isActive('/case-studies') ? 'active' : ''}`} to="/case-studies">Case Studies</Link>
+              <Link className={`nav-link ${isActive('/case-studies') ? 'active' : ''}`} to="/case-studies" onClick={closeNavbar}>Case Studies</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${isActive('/faqs') ? 'active' : ''}`} to="/faqs">FAQs</Link>
+              <Link className={`nav-link ${isActive('/faqs') ? 'active' : ''}`} to="/faqs" onClick={closeNavbar}>FAQs</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${isActive('/contact') ? 'active' : ''}`} to="/contact">Contact</Link>
+              <Link className={`nav-link ${isActive('/contact') ? 'active' : ''}`} to="/contact" onClick={closeNavbar}>Contact</Link>
             </li>
           </ul>
           <div className="d-flex align-items-center ms-auto">
-            <button className="btn btn-outline-primary me-3">Schedule Demo</button>
+            <button className="btn btn-outline-primary me-3" onClick={closeNavbar}>Schedule Demo</button>
             <div className="theme-toggle" id="themeToggle"></div>
           </div>
         </div>

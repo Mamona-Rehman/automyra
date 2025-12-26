@@ -200,7 +200,7 @@ const Integration = () => {
               </p>
               <div className="mt-4">
                 <button className="btn btn-primary btn-lg me-3">Start Integration</button>
-                <button className="btn btn-outline-primary btn-lg">Book Consultation</button>
+                <button className="btn btn-outline-primary btn-lg mt-lg-0 mt-2">Book Consultation</button>
               </div>
             </div>
             <div className="col-lg-4" data-aos="fade-left" data-aos-delay="300">
