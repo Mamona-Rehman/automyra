@@ -2278,6 +2278,10 @@
     background: rgb(255, 255, 255) !important;
   }
   
+  [data-theme="dark"] .integration-title{
+    color: rgb(255, 255, 255) !important;
+  }
+  
   /* Close button for mobile menu */
   .navbar-close {
     position: absolute;

@@ -548,7 +548,7 @@ const Integration = () => {
           </div>
           
           <div className="text-center mt-5" data-aos="fade-up" data-aos-delay="600">
-            <h3 className="mb-3">🔌 And Many More…</h3>
+            <h3 className="mb-3 integration-title">🔌 And Many More…</h3>
             <p className="lead">We continuously expand our integration ecosystem</p>
           </div>
         </div>
@@ -589,7 +589,7 @@ const Integration = () => {
       <section className="py-5 bg-darker">
         <div className="container">
           <div className="text-center" data-aos="fade-up">
-            <h2 className="display-4 mb-4">AUTOMYRA AI — Automate Everything. Intelligently.</h2>
+            <h2 className="display-4 mb-4 integration-title">AUTOMYRA AI — Automate Everything. Intelligently.</h2>
             <p className="lead mb-4">Connect all your tools into one intelligent automation ecosystem</p>
             <button className="btn btn-primary btn-lg me-3">Get Started Today</button>
             <button className="btn btn-outline-primary btn-lg">Book Integration Demo</button>
