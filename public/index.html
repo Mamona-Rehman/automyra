@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Automyra AI - Intelligent Automation Solutions for n8n, Zapier, Make.com, and UiPath" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://automyra-ai.com/" />
+    <meta property="og:title" content="Automyra AI | Intelligent Automation Solutions" />
+    <meta property="og:description" content="Expert automation services for n8n, Zapier, Make.com, UiPath, and custom AI solutions" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://automyra-ai.com/" />
+    <meta property="twitter:title" content="Automyra AI | Intelligent Automation Solutions" />
+    <meta property="twitter:description" content="Expert automation services for n8n, Zapier, Make.com, UiPath, and custom AI solutions" />
+    
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <!-- Preconnect to CDNs for faster loading -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <title>Automyra AI | Intelligent Automation Solutions</title>
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <style>
+      /* Critical CSS for initial loading */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: #0F172A;
+        color: #F8FAFC;
+        overflow-x: hidden;
+      }
+      
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      /* Loading fallback styles */
+      .app-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0A0F1F;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 3px solid rgba(139, 92, 246, 0.3);
+        border-radius: 50%;
+        border-top-color: #8B5CF6;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading fallback -->
+    <div class="app-loading">
+      <div class="loading-spinner"></div>
+    </div>
+    
+    <!-- Root element where React app will mount -->
+    <div id="root"></div>
+    
+    <!-- Remove loading screen when React loads -->
+    <script>
+      // Hide the loading fallback when React app loads
+      document.addEventListener('DOMContentLoaded', function() {
+        const root = document.getElementById('root');
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.addedNodes.length) {
+              const loadingScreen = document.querySelector('.app-loading');
+              if (loadingScreen) {
+                setTimeout(() => {
+                  loadingScreen.style.opacity = '0';
+                  loadingScreen.style.transition = 'opacity 0.5s ease';
+                  setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                  }, 500);
+                }, 1000);
+                observer.disconnect();
+              }
+            }
+          });
+        });
+        
+        observer.observe(root, { childList: true, subtree: true });
+      });
+    </script>
+    
+    <!-- Optional: Add Bootstrap JS if needed for components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Optional: Add AOS for scroll animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Optional: Add jQuery if needed (but try to avoid in React) -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
+  </body>
+</html>
