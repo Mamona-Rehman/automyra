@@ -149,13 +149,13 @@ const Home = () => {
         steps.forEach((step, i) => {
           const stepEl = document.createElement('div')
           stepEl.className = 'process-step'
-          stepEl.style.left = '50%'
+        //   stepEl.style.left = '50%'
           stepEl.style.top = `${(i * 120) + 60}px`
           stepEl.style.transform = 'translateX(-50%)'
           stepEl.innerHTML = `
             <div class="process-step-icon"><i class="bi ${step.icon}"></i></div>
             <h6 class="mb-0">${step.title}</h6>
-            <small class="text-muted">${step.desc}</small>
+          
           `
           container.appendChild(stepEl)
 
@@ -207,9 +207,10 @@ const Home = () => {
           stepEl.style.left = `${x}px`
           stepEl.style.top = `${y}px`
           stepEl.innerHTML = `
-            <div class="process-step-icon"><i class="bi ${step.icon}"></i></div>
-            <h6 class="mb-0">${step.title}</h6>
-            <small class="text-muted">${step.desc}</small>
+            <div class="process-step-icon "><i class="bi ${step.icon}"></i></div>
+            <h6 class="mb-5">${step.title}</h6>
+            <span class="text-muted mb-2"></span>
+          
           `
           container.appendChild(stepEl)
 

@@ -22,21 +22,23 @@
 /* AI Ecosystem Visualization */
 .ecosystem-visualization {
     position: relative;
-    height: 500px;
+    min-height: 530px;
     margin: 4rem auto;
-    /* overflow: hidden; */
-    border-radius: var(--border-radius);
+    padding: clamp(10px, 8vw, 12px);
+    overflow: hidden;
     background: var(--darker-bg);
+    border-radius: 20px;
     border: 1px solid var(--border-color);
-}
-
+    box-sizing: border-box;
+  }
+  
 .ecosystem-center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background: var(--gradient-primary);
     display: flex;
@@ -51,8 +53,8 @@
 
 .ecosystem-node {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: var(--card-bg);
     display: flex;
@@ -82,8 +84,8 @@
 
 .ecosystem-data-flow {
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background: var(--secondary-color);
     z-index: 2;

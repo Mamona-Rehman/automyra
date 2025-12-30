@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../../App.css';
+import logo from '../../assets/logo.png';
 
 const Navbar = () => {
   const location = useLocation();
@@ -54,7 +55,9 @@ const Navbar = () => {
     <nav className={`navbar navbar-expand-lg sticky-top ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container">
         <Link className="navbar-brand" to="/" onClick={closeNavbar}>
-          <span className="logo-text">Automyra AI</span>
+          {/* <span className="logo-text">Automyra AI</span> */}
+          
+             <img src={logo} alt="Automyra AI" style={{ height: '70px' }} />
         </Link>
         <button 
           className="navbar-toggler" 

@@ -240,7 +240,7 @@ const Services = () => {
           <div className="row g-4">
             {capabilities.map((capability, index) => (
               <div key={index} className="col-lg-4 col-md-6">
-                <div className="ai-feature-card" data-aos="fade-up" data-aos-delay={200 + index * 100}>
+                <div className="ai-feature-card" >
                   <div className="ai-feature-icon">
                     <i className={`bi ${capability.icon}`}></i>
                   </div>

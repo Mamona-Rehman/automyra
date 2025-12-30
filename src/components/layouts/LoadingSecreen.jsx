@@ -6,64 +6,64 @@ const LoadingScreen = () => {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
-  const getLoadingMessage = () => {
-    const path = location.pathname;
-    if (path === '/contact') {
-      return {
-        subtitle: 'Connecting to Contact Systems',
-        messages: [
-          'Initializing contact form',
-          'Loading contact details',
-          'Preparing AI response system'
-        ]
-      };
-    } else if (path === '/faqs') {
-      return {
-        subtitle: 'Loading Services & FAQ Database',
-        messages: [
-          'Initializing knowledge base',
-          'Loading service information',
-          'Preparing AI responses'
-        ]
-      };
-    } else if (path === '/case-studies') {
-      return {
-        subtitle: 'Loading Case Studies',
-        messages: [
-          'Loading success stories',
-          'Preparing project details',
-          'Initializing portfolio'
-        ]
-      };
-    } else if (path === '/integration') {
-      return {
-        subtitle: 'Loading Integration Platform',
-        messages: [
-          'Initializing integrations',
-          'Loading platform data',
-          'Preparing connection systems'
-        ]
-      };
-    } else if (path === '/services') {
-      return {
-        subtitle: 'Loading AI Services',
-        messages: [
-          'Initializing service catalog',
-          'Loading AI capabilities',
-          'Preparing service details'
-        ]
-      };
-    } else {
-      return {
-        subtitle: 'Initializing intelligent automation systems',
-        messages: [
-          'Loading AI modules',
-          'Initializing neural networks',
-          'Preparing automation engines'
-        ]
-      };
-    }
-  };
+  // const getLoadingMessage = () => {
+  //   const path = location.pathname;
+  //   if (path === '/contact') {
+  //     return {
+  //       subtitle: 'Connecting to Contact Systems',
+  //       messages: [
+  //         'Initializing contact form',
+  //         'Loading contact details',
+  //         'Preparing AI response system'
+  //       ]
+  //     };
+  //   } else if (path === '/faqs') {
+  //     return {
+  //       subtitle: 'Loading Services & FAQ Database',
+  //       messages: [
+  //         'Initializing knowledge base',
+  //         'Loading service information',
+  //         'Preparing AI responses'
+  //       ]
+  //     };
+  //   } else if (path === '/case-studies') {
+  //     return {
+  //       subtitle: 'Loading Case Studies',
+  //       messages: [
+  //         'Loading success stories',
+  //         'Preparing project details',
+  //         'Initializing portfolio'
+  //       ]
+  //     };
+  //   } else if (path === '/integration') {
+  //     return {
+  //       subtitle: 'Loading Integration Platform',
+  //       messages: [
+  //         'Initializing integrations',
+  //         'Loading platform data',
+  //         'Preparing connection systems'
+  //       ]
+  //     };
+  //   } else if (path === '/services') {
+  //     return {
+  //       subtitle: 'Loading AI Services',
+  //       messages: [
+  //         'Initializing service catalog',
+  //         'Loading AI capabilities',
+  //         'Preparing service details'
+  //       ]
+  //     };
+  //   } else {
+  //     return {
+  //       subtitle: 'Initializing intelligent automation systems',
+  //       messages: [
+  //         'Loading AI modules',
+  //         'Initializing neural networks',
+  //         'Preparing automation engines'
+  //       ]
+  //     };
+  //   }
+  // };
 
   useEffect(() => {
     // Show loading screen on route change
@@ -95,7 +95,7 @@ const LoadingScreen = () => {
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
-  const loadingData = getLoadingMessage();
+  // const loadingData = getLoadingMessage();
 
   return (
     <div id="loading-screen" style={{ opacity: loading ? 1 : 0, visibility: loading ? 'visible' : 'hidden' }}>
@@ -110,17 +110,17 @@ const LoadingScreen = () => {
           <div className="ai-loader-connection"></div>
         </div>
 
-        <div className="loading-logo">Automyra AI</div>
-        <p className="loading-subtitle">{loadingData.subtitle}</p>
+        {/* <div className="loading-logo">Automyra AI</div> */}
+        {/* <p className="loading-subtitle">{loadingData.subtitle}</p> */}
 
         <div className="loading-progress">
           <div className="loading-progress-bar"></div>
         </div>
 
         <div className="loading-message">
-          {loadingData.messages.map((msg, index) => (
+          {/* {loadingData.messages.map((msg, index) => (
             <span key={index}>{msg}</span>
-          ))}
+          ))} */}
         </div>
       </div>
     </div>
